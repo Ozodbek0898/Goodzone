@@ -10,16 +10,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_goodzone1/Controller/favourite_controller.dart';
 import 'package:flutter_goodzone1/Controller/home_controller.dart';
-import 'package:flutter_goodzone1/data/dao/products_dao.dart';
-import 'package:flutter_goodzone1/data/database/database.dart';
 import 'package:flutter_goodzone1/data/entities/popular_entity.dart';
 
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:provider/provider.dart';
-
-
-
 
 class HomePage extends StatefulWidget {
   @override
@@ -27,15 +21,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-
-
-
   bool isloading = true;
 
   HomeController controller = Get.put(HomeController());
   FavouriteController controller1 = Get.put(FavouriteController());
-
 
   Icon favorite(bool value) {
     if (value == false) {
@@ -49,7 +38,6 @@ class _HomePageState extends State<HomePage> {
         color: Colors.red,
       );
   }
-
 
   loading() async {
     return Container(
@@ -97,10 +85,7 @@ class _HomePageState extends State<HomePage> {
                             borderRadius: BorderRadius.circular(16),
                             child: Container(
                               alignment: Alignment.center,
-                              width: MediaQuery
-                                  .of(context)
-                                  .size
-                                  .width,
+                              width: MediaQuery.of(context).size.width,
                               child: Image.network(
                                 controller.banner[i].image!,
                                 width: double.infinity,
@@ -246,17 +231,17 @@ class _HomePageState extends State<HomePage> {
                                     onTap: () {
                                       setState(() {
                                         controller.popular[index].favorite =
-                                        !controller.popular[index].favorite;
+                                            !controller.popular[index].favorite;
                                       });
                                       var pro = Products(
                                           id: controller.popular[index].id,
                                           name: controller.popular[index].name,
-                                          image: controller.popular[index]
-                                              .image,
-                                          price: controller.prices[index]
-                                              .oldPrice,
-                                          favorite: controller.popular[index]
-                                              .favorite);
+                                          image:
+                                              controller.popular[index].image,
+                                          price:
+                                              controller.prices[index].oldPrice,
+                                          favorite: controller
+                                              .popular[index].favorite);
                                       if (controller.popular[index].favorite ==
                                           false) {
                                         init().deleteProducts(pro);
@@ -356,8 +341,8 @@ class _HomePageState extends State<HomePage> {
                                     onTap: () {
                                       setState(() {
                                         controller.popular[index].recFavorite =
-                                        !controller
-                                            .popular[index].recFavorite;
+                                            !controller
+                                                .popular[index].recFavorite;
                                       });
                                     },
                                   ),
@@ -415,5 +400,4 @@ class _HomePageState extends State<HomePage> {
           ],
         ));
   }
-
 }
