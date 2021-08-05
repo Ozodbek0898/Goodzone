@@ -12,16 +12,13 @@ class FavouriteController extends GetxController{
   HomeController controller = Get.put(HomeController());
   HomePage homePage = HomePage();
   List<Products> list=[];
+  ProductsDao productsDao = ProductDatabase.instance!.productDao;
 
 
+@override
+  void onInit() {
 
-
-
-  init() async {
-    final dataBase = await $FloorProductDatabase.databaseBuilder(
-        'app_database.db').build();
-    final dao = dataBase.productDao;
-    return dao;
+    super.onInit();
   }
 
 

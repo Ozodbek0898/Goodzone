@@ -6,6 +6,7 @@ import 'package:flutter_goodzone1/Model/brand.dart';
 import 'package:flutter_goodzone1/Model/category.dart';
 import 'package:flutter_goodzone1/Model/banner.dart';
 import 'package:flutter_goodzone1/Model/popular.dart';
+import 'package:flutter_goodzone1/Model/product_detail.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -55,6 +56,12 @@ abstract class ApiClient{
   Future<Category> getCategory(
       @Query("limit") int limit,
     );
+
+
+  @GET("/product/{id}")
+  Future<ProductDetail> getSlug(
+      @Path("id") String id
+      );
 
 
 

@@ -1,8 +1,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_goodzone1/views/basket_page.dart';
 import 'package:flutter_goodzone1/views/favourite_page.dart';
 import 'package:flutter_goodzone1/views/home_page.dart';
+import 'package:flutter_goodzone1/views/profile_page.dart';
 import 'package:flutter_goodzone1/views/search.dart';
 
 class Routes extends StatelessWidget {
@@ -16,7 +18,9 @@ class Routes extends StatelessWidget {
       routes: {
         '/': (context) => HomePage(),
         '/search' : (context) => Search(),
-        '/favourite' : (context) => FavouritePage()
+        '/basket' : (context)=> BasketPage(),
+        '/favourite' : (context) => FavouritePage(),
+        '/profile' : (context)  => ProfilePage()
       },
     );
   }

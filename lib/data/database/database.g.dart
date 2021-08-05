@@ -81,7 +81,7 @@ class _$ProductDatabase extends ProductDatabase {
       },
       onCreate: (database, version) async {
         await database.execute(
-            'CREATE TABLE IF NOT EXISTS `Products` (`id` TEXT PRIMARY KEY AUTOINCREMENT, `favorite` INTEGER NOT NULL, `recFavorite` INTEGER NOT NULL, `name` TEXT, `price` TEXT, `title` TEXT, `image` TEXT)');
+            'CREATE TABLE IF NOT EXISTS `Products` (`id` TEXT, `favorite` INTEGER NOT NULL, `recFavorite` INTEGER NOT NULL, `name` TEXT, `price` TEXT, `title` TEXT, `image` TEXT, PRIMARY KEY (`id`))');
 
         await callback?.onCreate?.call(database, version);
       },

@@ -10,6 +10,15 @@ part 'database.g.dart';
 abstract class ProductDatabase extends FloorDatabase {
   ProductsDao get productDao;
 
+  static ProductDatabase? instance;
 
+  static Future<void> init() async {
+    instance =
+        await $FloorProductDatabase.databaseBuilder('goodzone.db').build();
+  }
 
+  static getInstance() async {
+    if (instance == null) await init();
+    return instance;
+  }
 }

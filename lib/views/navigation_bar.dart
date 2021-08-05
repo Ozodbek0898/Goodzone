@@ -1,11 +1,9 @@
-
-
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_goodzone1/views/basket_page.dart';
 import 'package:flutter_goodzone1/views/favourite_page.dart';
 import 'package:flutter_goodzone1/views/home_page.dart';
+import 'package:flutter_goodzone1/views/profile_page.dart';
 import 'package:flutter_goodzone1/views/search.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -25,23 +23,18 @@ class _NavigationBarState extends State<NavigationBar> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(
         index: _selectedIndex,
         children: [
-           HomePage(),
-        Search(),
-          FavouritePage()
-          ,Center(
-            child: Text("4"),
-          ),Center(
-            child: Text("5"),
-          ),
+          HomePage(),
+          Search(),
+          BasketPage(),
+          FavouritePage(),
+          ProfilePage()
         ],
-
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
